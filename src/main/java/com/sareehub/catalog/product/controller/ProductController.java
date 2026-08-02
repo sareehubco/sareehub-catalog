@@ -13,13 +13,14 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@RequestMapping("/product")
 @RequiredArgsConstructor
 public class ProductController {
 
     private final ProductService productService;
     private final ProductImageService imageService;
 
-    // 5. GET /products
+    // 5. GET /product/products
     @GetMapping("/products")
     public Page<ProductResponse> browseProducts(
             @ModelAttribute ProductFilterRequest filter,
@@ -28,60 +29,45 @@ public class ProductController {
         return productService.browseProducts(filter, PageRequest.of(page, size));
     }
 
-    // 6. GET /products/{productId}
-    @GetMapping("/products/{productId}")
+    // 6. GET /product/{productId}
+    @GetMapping("/{productId}")
     public ProductResponse getProduct(@PathVariable UUID productId) {
         return productService.getProduct(productId);
     }
 
-    // 7. POST /sellers/{sellerId}/products
-    @PostMapping("/sellers/{sellerId}/products")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ProductResponse createProduct(
-            @PathVariable UUID sellerId,
-            @Valid @RequestBody CreateProductRequest request) {
-        return productService.createProduct(sellerId, request);
-    }
-
-    // 8. PUT /products/{productId}
-    @PutMapping("/products/{productId}")
+    // 8. PUT /product/{productId}
+    @PutMapping("/{productId}")
     public ProductResponse updateProduct(
             @PathVariable UUID productId,
             @Valid @RequestBody UpdateProductRequest request) {
         return productService.updateProduct(productId, request);
     }
 
-    // 9. PATCH /products/{productId}/stock
-    @PatchMapping("/products/{productId}/stock")
+    // 9. PATCH /product/{productId}/stock
+    @PatchMapping("/{productId}/stock")
     public ProductResponse updateStock(
             @PathVariable UUID productId,
             @Valid @RequestBody UpdateStockRequest request) {
         return productService.updateStock(productId, request);
     }
 
-    // 10. PATCH /products/{productId}/status
-    @PatchMapping("/products/{productId}/status")
+    // 10. PATCH /product/{productId}/status
+    @PatchMapping("/{productId}/status")
     public ProductResponse updateStatus(
             @PathVariable UUID productId,
             @Valid @RequestBody UpdateStatusRequest request) {
         return productService.updateStatus(productId, request);
     }
 
-    // 11. DELETE /products/{productId}
-    @DeleteMapping("/products/{productId}")
+    // 11. DELETE /product/{productId}
+    @DeleteMapping("/{productId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteProduct(@PathVariable UUID productId) {
         productService.deleteProduct(productId);
     }
 
-    // 12. GET /sellers/{sellerId}/products
-    @GetMapping("/sellers/{sellerId}/products")
-    public List<ProductResponse> getSellerProducts(@PathVariable UUID sellerId) {
-        return productService.getSellerProducts(sellerId);
-    }
-
-    // 13. POST /products/{productId}/images
-    @PostMapping("/products/{productId}/images")
+    // 13. POST /product/{productId}/images
+    @PostMapping("/{productId}/images")
     @ResponseStatus(HttpStatus.CREATED)
     public List<ProductImageResponse> addImages(
             @PathVariable UUID productId,
@@ -89,8 +75,8 @@ public class ProductController {
         return imageService.addImages(productId, requests);
     }
 
-    // 14. DELETE /products/{productId}/images/{imageId}
-    @DeleteMapping("/products/{productId}/images/{imageId}")
+    // 14. DELETE /product/{productId}/images/{imageId}
+    @DeleteMapping("/{productId}/images/{imageId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteImage(
             @PathVariable UUID productId,
@@ -98,8 +84,8 @@ public class ProductController {
         imageService.deleteImage(productId, imageId);
     }
 
-    // 15. PATCH /products/{productId}/images/{imageId}/primary
-    @PatchMapping("/products/{productId}/images/{imageId}/primary")
+    // 15. PATCH /product/{productId}/images/{imageId}/primary
+    @PatchMapping("/{productId}/images/{imageId}/primary")
     public ProductImageResponse setPrimaryImage(
             @PathVariable UUID productId,
             @PathVariable UUID imageId) {
