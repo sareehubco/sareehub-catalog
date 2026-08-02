@@ -1,6 +1,6 @@
 package com.sareehub.catalog.seller.dto;
 
-import com.sareehub.catalog.seller.entity.SellerType;
+import com.sareehub.catalog.seller.constant.SellerType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;

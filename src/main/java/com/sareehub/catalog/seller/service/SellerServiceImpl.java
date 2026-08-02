@@ -5,7 +5,7 @@ import com.sareehub.catalog.product.repository.ProductImageRepository;
 import com.sareehub.catalog.product.repository.ProductRepository;
 import com.sareehub.catalog.seller.dto.*;
 import com.sareehub.catalog.seller.entity.SellerProfile;
-import com.sareehub.catalog.seller.entity.VerificationStatus;
+import com.sareehub.catalog.seller.constant.VerificationStatus;
 import com.sareehub.catalog.seller.repository.SellerProfileRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;

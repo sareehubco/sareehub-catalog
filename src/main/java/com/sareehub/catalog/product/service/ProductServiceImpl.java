@@ -3,11 +3,10 @@ package com.sareehub.catalog.product.service;
 import com.sareehub.catalog.product.constant.ProductStatus;
 import com.sareehub.catalog.product.dto.*;
 import com.sareehub.catalog.product.entity.Product;
-import com.sareehub.catalog.product.entity.ProductImage;
 import com.sareehub.catalog.product.repository.ProductImageRepository;
 import com.sareehub.catalog.product.repository.ProductRepository;
 import com.sareehub.catalog.seller.entity.SellerProfile;
-import com.sareehub.catalog.seller.entity.VerificationStatus;
+import com.sareehub.catalog.seller.constant.VerificationStatus;
 import com.sareehub.catalog.seller.repository.SellerProfileRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +17,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 

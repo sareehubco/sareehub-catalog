@@ -1,5 +1,7 @@
 package com.sareehub.catalog.seller.entity;
 
+import com.sareehub.catalog.seller.constant.SellerType;
+import com.sareehub.catalog.seller.constant.VerificationStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;

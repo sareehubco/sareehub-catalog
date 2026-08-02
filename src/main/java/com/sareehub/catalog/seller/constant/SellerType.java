@@ -1,4 +1,4 @@
-package com.sareehub.catalog.seller.entity;
+package com.sareehub.catalog.seller.constant;
 
 public enum SellerType {
     MANUFACTURER,
